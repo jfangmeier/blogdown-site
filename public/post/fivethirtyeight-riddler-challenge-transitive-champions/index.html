@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+
+<meta itemprop="name" content="FiveThirtyEight Riddler Challenge: &#39;Transitive Champions&#39;">
+<meta itemprop="description" content="The ChallengeThis weekend, I attempted to solve my first FiveThirtyEight Riddler challenge. Many of these challenges require a bit more probability theory than I’m comfortable with, but this week’s classic challenge hit a subject that I care too much about: college basketball national champions and the bragging rights that come from beating the champ:
+On Sunday, the Baylor Lady Bears won the 2019 NCAA women’s basketball championship, and on Monday, the Virginia Cavaliers did the same on the men’s side.">
+
+
+<meta itemprop="datePublished" content="2019-04-14T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-04-14T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1079">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="FiveThirtyEight Riddler Challenge: &#39;Transitive Champions&#39;" />
+<meta property="og:description" content="The ChallengeThis weekend, I attempted to solve my first FiveThirtyEight Riddler challenge. Many of these challenges require a bit more probability theory than I’m comfortable with, but this week’s classic challenge hit a subject that I care too much about: college basketball national champions and the bragging rights that come from beating the champ:
+On Sunday, the Baylor Lady Bears won the 2019 NCAA women’s basketball championship, and on Monday, the Virginia Cavaliers did the same on the men’s side." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/fivethirtyeight-riddler-challenge-transitive-champions/" />
+<meta property="article:published_time" content="2019-04-14T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-04-14T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="FiveThirtyEight Riddler Challenge: &#39;Transitive Champions&#39;"/>
+<meta name="twitter:description" content="The ChallengeThis weekend, I attempted to solve my first FiveThirtyEight Riddler challenge. Many of these challenges require a bit more probability theory than I’m comfortable with, but this week’s classic challenge hit a subject that I care too much about: college basketball national champions and the bragging rights that come from beating the champ:
+On Sunday, the Baylor Lady Bears won the 2019 NCAA women’s basketball championship, and on Monday, the Virginia Cavaliers did the same on the men’s side."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>FiveThirtyEight Riddler Challenge: &#39;Transitive Champions&#39;</title>
+	<link rel="stylesheet" href="/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="/">Josh Fangmeier</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="/post/">Posts</a>
+					<a href="/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/joshfangmeier" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://www.linkedin.com/in/jfangmeier/" target="_blank" rel="noopener me" title="Linkedin"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a href="https://github.com/jfangmeier" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="/post/">Posts</a></li>
+			<li><a href="/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>FiveThirtyEight Riddler Challenge: &#39;Transitive Champions&#39;</h1>
+		<div class="content">
+			
+
+
+<div id="the-challenge" class="section level2">
+<h2>The Challenge</h2>
+<p>This weekend, I attempted to solve my first FiveThirtyEight Riddler challenge. Many of these challenges require a bit more probability theory than I’m comfortable with, but <a href="https://fivethirtyeight.com/features/how-many-times-a-day-is-a-broken-clock-right/">this week’s classic challenge</a> hit a subject that I care too much about: college basketball national champions and the bragging rights that come from beating the champ:</p>
+<blockquote>
+<p>On Sunday, the Baylor Lady Bears won the 2019 NCAA women’s basketball championship, and on Monday, the Virginia Cavaliers did the same on the men’s side.
+But what about all of the unsung transitive champions? For example, earlier in the season, Florida State beat Virginia, thereby laying claim to a transitive championship for the Seminoles. And Boston College beat Florida State, claiming one for the Eagles. And IUPUI beat Boston College, and Ball State beat IUPUI, and so on and so on.
+Baylor, meanwhile, only lost once, to Stanford, who lost to five teams, and so on.
+How many transitive national champions were there this season in the women’s and men’s games? Or, maybe more descriptively, how many teams weren’t transitive national champions? You should include tournament losses in your calculations.</p>
+</blockquote>
+<p>The author (Oliver Roeder) then supplies links to the results of women’s and men’s basketball for the 2018-2019 season from <a href="https://www.masseyratings.com">masseyratings.com</a>. On first inspection of the game results, they seem to be in a text format that could be scraped. In addition, I noticed that the <a href="https://www.masseyratings.com/scores.php?s=305973&amp;sub=305973&amp;all=1">women’s link</a> includes 27,266 games, while the <a href="https://www.masseyratings.com/scores.php?s=305972&amp;sub=11590&amp;all=1">men’s link</a> contains only 6,048. The women’s results page includes several junior colleges and even my alma mater <a href="https://twitter.com/hcbroncowbb?lang=en">Hastings College</a>, who I know compete at the NAIA level, not NCAA Division I. The men’s results page includes only Division I teams, and since the challenge only mentions Baylor and Virginia, I’m assuming we want to compare Division I transitive champions. I used <a href="https://www.masseyratings.com/scores.php?s=305973&amp;sub=11590&amp;all=1">another link</a> to pull the women’s results for 5,638 Division I games.</p>
+</div>
+<div id="scraping-the-game-results-data" class="section level2">
+<h2>Scraping the game results data</h2>
+<p>I decided to tackle this challenge using the tidyverse family of R packages that can scrap the data and wrangle it into a tidy format for further analysis.</p>
+<p>One major challenge is that I wrote a function to parse the college names and scores from the Massey Rating text. This involves some very gnarly regular expression writing as you can see.</p>
+<pre class="r"><code>library(tidyverse)
+library(lubridate)
+library(rvest)</code></pre>
+<pre class="r"><code>bb_games_process &lt;- function(x){
+  read_html(x) %&gt;% 
+    html_node(xpath = &#39;/html/body/pre/text()[1]&#39;) %&gt;% 
+    html_text() %&gt;% 
+    enframe() %&gt;% 
+    separate_rows(value, sep = &quot;\n&quot;) %&gt;% 
+    mutate(value = str_squish(value),
+           game = substring(value, 12),
+           date = ymd(substr(value,1,10)),
+           win_team = str_extract(game, &quot;^[\\@]{0,1}[:alpha:]{1,}[:blank:]{0,1}[:punct:]{0,1}[:blank:]{0,1}[:alpha:]{0,1}[:blank:]{0,1}[:alpha:]{1,}[:punct:]{0,1}[:alpha:]{0,1}[:blank:]{0,1}[:alpha:]{1,}[:punct:]{0,1}[:alpha:]{0,1}&quot;),
+           win_pts = as.integer(str_extract(game, &quot;(?&lt;=[:alpha:]{1,100}[:blank:]{1})[:digit:]{1,3}&quot;)),
+           lose_team = str_extract(game, &quot;(?&lt;=[:digit:]{1,3}[:blank:]{1})[\\@]{0,1}[:alpha:]{1,}[:blank:]{0,1}[:punct:]{0,1}[:blank:]{0,1}[:alpha:]{0,1}[:blank:]{0,1}[:alpha:]{1,}[:punct:]{0,1}[:alpha:]{0,1}[:blank:]{0,1}[:alpha:]{1,}[:punct:]{0,1}[:alpha:]{0,1}&quot;),
+           lose_pts = as.integer(str_extract(game, &quot;(?&lt;=[:digit:]{1,3}[:blank:]{1}[\\@]{0,1}[:alpha:]{1,100}[:blank:]{0,1}[:punct:]{0,1}[:blank:]{0,1}[:alpha:]{0,1}[:blank:]{0,1}[:alpha:]{1,100}[:punct:]{0,1}[:alpha:]{0,1}[:blank:]{0,1}[:alpha:]{1,100}[:punct:]{0,1}[:alpha:]{0,1}[:blank:]{1})[:digit:]{1,3}&quot;))) %&gt;% 
+    select(-name, -value) %&gt;% 
+    filter(!is.na(date)) %&gt;% 
+    mutate(home_team = if_else(str_detect(win_team, &quot;\\@&quot;), win_team, 
+                               if_else(str_detect(lose_team, &quot;\\@&quot;), lose_team, &quot;Neutral Court&quot;))) %&gt;% 
+    mutate_at(vars(contains(&#39;team&#39;)), list(~str_remove(., &quot;\\@&quot;))) %&gt;% 
+    cbind(x)
+}
+
+#wbb_url &lt;- &quot;https://www.masseyratings.com/scores.php?s=305973&amp;sub=305973&amp;all=1&quot; #Original URL (All WBB games)
+wbb_url &lt;- &quot;https://www.masseyratings.com/scores.php?s=305973&amp;sub=11590&amp;all=1&quot; #Corrected URL (only D1 WBB games)
+mbb_url &lt;- &quot;https://www.masseyratings.com/scores.php?s=cb2019&amp;sub=ncaa-d1&amp;all=1&amp;sch=1&quot; #Original URL (only D1 MBB games)
+urls &lt;- c(wbb_url, mbb_url)
+
+bb_games &lt;- map_dfr(urls, bb_games_process) %&gt;% 
+  as_tibble() %&gt;% 
+  mutate(sport = if_else(x == wbb_url, &quot;WBB&quot;, &quot;MBB&quot;)) %&gt;% 
+  select(-x)
+
+bb_games %&gt;% tail(n=5)</code></pre>
+<pre><code>## # A tibble: 5 x 8
+##   game       date       win_team win_pts lose_team lose_pts home_team sport
+##   &lt;chr&gt;      &lt;date&gt;     &lt;chr&gt;      &lt;int&gt; &lt;chr&gt;        &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;
+## 1 Texas 81 ~ 2019-04-04 Texas         81 Lipscomb        66 Neutral ~ MBB  
+## 2 South Flo~ 2019-04-05 South F~      77 DePaul          65 DePaul    MBB  
+## 3 Virginia ~ 2019-04-06 Virginia      63 Auburn          62 Neutral ~ MBB  
+## 4 Texas Tec~ 2019-04-06 Texas T~      61 Michigan~       51 Neutral ~ MBB  
+## 5 Virginia ~ 2019-04-08 Virginia      85 Texas Te~       77 Neutral ~ MBB</code></pre>
+<p>Using this prepped data, we can identify that there were 543 teams that played in women’s games and 650 that played in men’s games during the last season.</p>
+</div>
+<div id="calculating-the-number-of-transitive-champions" class="section level2">
+<h2>Calculating the number of transitive champions</h2>
+<p>To identify each “transitive champion” in each sport, I looked for where the nation champion lost and pulled a vector of the opponent(s) who beat the champion during the season. I then looped (ugh, I know, I know) through multiple rounds to see who defeated those teams, and so on and so forth. With each loop, I also pasted the number of unique transitive champions who were identified in each round into a data frame for further analysis.</p>
+<div id="setup" class="section level4">
+<h4>Setup</h4>
+<pre class="r"><code>rounds &lt;- 25
+wbb_n_champ &lt;- &quot;Baylor&quot;
+mbb_n_champ &lt;- &quot;Virginia&quot;</code></pre>
+</div>
+<div id="wbb-calculations" class="section level4">
+<h4>WBB calculations</h4>
+<pre class="r"><code>wbb_t_champs &lt;- bb_games %&gt;% 
+  filter(sport == &quot;WBB&quot; &amp; lose_team %in% wbb_n_champ) %&gt;% 
+  pull(win_team) %&gt;% 
+  unique()
+
+wbb_degree_sep &lt;- wbb_t_champs %&gt;% length
+
+for(x in 1:rounds){
+  wbb_t_champ_beaters &lt;- bb_games %&gt;% 
+    filter(sport == &quot;WBB&quot; &amp; lose_team %in% wbb_t_champs) %&gt;% 
+    pull(win_team) %&gt;% 
+    unique()
+  wbb_t_champs &lt;- c(wbb_t_champs, wbb_t_champ_beaters)
+  wbb_t_champs &lt;- wbb_t_champs[!wbb_t_champs == wbb_n_champ] #Remove the national champion from the transitive champs vector
+  wbb_degree_sep &lt;- rbind(wbb_degree_sep, wbb_t_champs %&gt;% unique() %&gt;% length)
+}
+
+wbb_transitive_champs &lt;- wbb_degree_sep %&gt;% 
+  as.data.frame() %&gt;% 
+  cbind(total_wbb_teams) %&gt;%
+  rename(transitive_champions = V1,
+         total_teams = total_wbb_teams) %&gt;% 
+  mutate(degree_of_separation = row_number(),
+         transitive_champ_pct = transitive_champions / total_teams,
+         sport = &quot;WBB&quot;) </code></pre>
+</div>
+<div id="mbb-calculations" class="section level4">
+<h4>MBB calculations</h4>
+<pre class="r"><code>mbb_t_champs &lt;- bb_games %&gt;% 
+  filter(sport == &quot;MBB&quot; &amp; lose_team %in% mbb_n_champ) %&gt;% 
+  pull(win_team) %&gt;% 
+  unique()
+
+mbb_degree_sep &lt;- mbb_t_champs %&gt;% length
+
+for(x in 1:rounds){
+  mbb_t_champ_beaters &lt;- bb_games %&gt;% 
+    filter(sport == &quot;MBB&quot; &amp; lose_team %in% mbb_t_champs) %&gt;% 
+    pull(win_team) %&gt;% 
+    unique()
+  mbb_t_champs &lt;- c(mbb_t_champs, mbb_t_champ_beaters)
+  mbb_t_champs &lt;- mbb_t_champs[!mbb_t_champs == mbb_n_champ] #Remove the national champion from the transitive champs vector
+  mbb_degree_sep &lt;- rbind(mbb_degree_sep, mbb_t_champs %&gt;% unique() %&gt;% length)
+}
+
+mbb_transitive_champs &lt;- mbb_degree_sep %&gt;% 
+  as.data.frame() %&gt;% 
+  cbind(total_mbb_teams) %&gt;%
+  rename(transitive_champions = V1,
+         total_teams = total_mbb_teams) %&gt;% 
+  mutate(degree_of_separation = row_number(),
+         transitive_champ_pct = transitive_champions / total_teams,
+         sport = &quot;MBB&quot;) </code></pre>
+</div>
+<div id="bringing-the-transitive-champion-data-together" class="section level4">
+<h4>Bringing the transitive champion data together</h4>
+<pre class="r"><code>transitive_champs &lt;- bind_rows(
+  wbb_transitive_champs,
+  mbb_transitive_champs) %&gt;% 
+  mutate(sport = as_factor(sport))</code></pre>
+</div>
+</div>
+<div id="results" class="section level2">
+<h2>Results!</h2>
+<p>For the 2018-2019, I identified the following number of “transitive champs”:</p>
+<ul>
+<li><p>Women’s Basketball: <strong>360 transitive champions</strong></p></li>
+<li><p>Men’s Basketball: <strong>358 transitive champions</strong></p></li>
+</ul>
+<p>Each sport reached the total number of transitive champs within 8 degrees of separation of the national champion. However, transitive champs comprise 66% of total women’s Division I basketball teams compared to 55% in the men’s game, as the plot below shows. This could be due to an effect of major conference teams playing each other more in men’s basketball (limiting opportunities for minor conference teams to grab a transitive championship), but that hypothesis would have to be tested in further analysis.</p>
+<pre class="r"><code>transitive_champs%&gt;% 
+  ggplot(aes(x=degree_of_separation, y=transitive_champ_pct, color = sport)) +
+  labs(title = &quot;How many basketball teams beat a team, who beat a team, \nwho.... beat the national champ?&quot;,
+       subtitle = &quot;Analysis of 2018-2019 college basketball games&quot;) + 
+  geom_line() +
+  geom_point() +
+  theme_minimal() +
+  facet_grid(rows = vars(sport), scales = &quot;free&quot;) +
+  scale_x_continuous(&quot;Degrees of Separation from Actual National Champion&quot;) +
+  scale_y_continuous(&quot;Cumulative % of Teams&quot;, labels = scales::percent) +
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="/post/2019-04-14-fivethirtyeight-riddler-challenge-transitive-champions_files/figure-html/t_champs%20plot-1.png" width="672" /></p>
+</div>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="/">Josh Fangmeier</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>
