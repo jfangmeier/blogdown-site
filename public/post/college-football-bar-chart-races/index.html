@@ -9,25 +9,25 @@
 	<meta name="msapplication-TileColor" content="#494f5c">
 
 <meta itemprop="name" content="College Football Bar Chart Races">
-<meta itemprop="description" content="Bar Chart RacesThe project is inspired by the Athletic’s fantastic series by Matt Brown and Michael Weinreb which looks back on 150 years of college football by summarizing each decade. One of my favorite parts of the series is how it describes the rise and fall of various schools over time, such as the early dominance of the Ivy League prior to World War I, Oklahoma in the 1950s, and Miami in the 1980s.">
+<meta itemprop="description" content="Bar Chart RacesThis project is inspired by the Athletic’s fantastic series by Matt Brown and Michael Weinreb that looks back on 150 years of college football by summarizing each decade. One of my favorite parts of the series is how it describes the rise and fall of various schools over time, such as the early dominance of the Ivy League prior to World War I, Oklahoma in the 1950s, and Miami in the 1980s.">
 
 
-<meta itemprop="datePublished" content="2019-07-14T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-07-14T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2019">
+<meta itemprop="datePublished" content="2019-07-17T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-07-17T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2031">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta property="og:title" content="College Football Bar Chart Races" />
-<meta property="og:description" content="Bar Chart RacesThe project is inspired by the Athletic’s fantastic series by Matt Brown and Michael Weinreb which looks back on 150 years of college football by summarizing each decade. One of my favorite parts of the series is how it describes the rise and fall of various schools over time, such as the early dominance of the Ivy League prior to World War I, Oklahoma in the 1950s, and Miami in the 1980s." />
+<meta property="og:description" content="Bar Chart RacesThis project is inspired by the Athletic’s fantastic series by Matt Brown and Michael Weinreb that looks back on 150 years of college football by summarizing each decade. One of my favorite parts of the series is how it describes the rise and fall of various schools over time, such as the early dominance of the Ivy League prior to World War I, Oklahoma in the 1950s, and Miami in the 1980s." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/post/college-football-bar-chart-races/" />
-<meta property="article:published_time" content="2019-07-14T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-07-14T00:00:00&#43;00:00"/>
+<meta property="article:published_time" content="2019-07-17T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-07-17T00:00:00&#43;00:00"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="College Football Bar Chart Races"/>
-<meta name="twitter:description" content="Bar Chart RacesThe project is inspired by the Athletic’s fantastic series by Matt Brown and Michael Weinreb which looks back on 150 years of college football by summarizing each decade. One of my favorite parts of the series is how it describes the rise and fall of various schools over time, such as the early dominance of the Ivy League prior to World War I, Oklahoma in the 1950s, and Miami in the 1980s."/>
+<meta name="twitter:description" content="Bar Chart RacesThis project is inspired by the Athletic’s fantastic series by Matt Brown and Michael Weinreb that looks back on 150 years of college football by summarizing each decade. One of my favorite parts of the series is how it describes the rise and fall of various schools over time, such as the early dominance of the Ivy League prior to World War I, Oklahoma in the 1950s, and Miami in the 1980s."/>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -76,20 +76,20 @@
 <p><img src="/post/2019-07-14-college-football-bar-chart-races_files/cfb_rolling_wins.gif" /></p>
 <div id="bar-chart-races" class="section level2">
 <h2>Bar Chart Races</h2>
-<p>The project is inspired by the Athletic’s fantastic <a href="https://theathletic.com/tag/150-years-of-college-football/">series</a> by <a href="https://twitter.com/MattBrownCFB">Matt Brown</a> and <a href="https://twitter.com/MichaelWeinreb">Michael Weinreb</a> which looks back on 150 years of college football by summarizing each decade. One of my favorite parts of the series is how it describes the rise and fall of various schools over time, such as the early dominance of the Ivy League prior to World War I, Oklahoma in the 1950s, and Miami in the 1980s.</p>
+<p>This project is inspired by the Athletic’s fantastic <a href="https://theathletic.com/tag/150-years-of-college-football/">series</a> by <a href="https://twitter.com/MattBrownCFB">Matt Brown</a> and <a href="https://twitter.com/MichaelWeinreb">Michael Weinreb</a> that looks back on 150 years of college football by summarizing each decade. One of my favorite parts of the series is how it describes the rise and fall of various schools over time, such as the early dominance of the Ivy League prior to World War I, Oklahoma in the 1950s, and Miami in the 1980s.</p>
 <p>The series also got me to think about how all these trends in program success could be visualized, and a bar chart race seemed like the obvious option to try out. I heard about bar chart races from <a href="https://twitter.com/jburnmurdoch">John Burn-Murdoch</a>’s interview on the <a href="https://policyviz.com/podcast/episode-155-john-burn-murdoch/">PolicyViz podcast</a> where he discussed his innovative <a href="https://observablehq.com/@johnburnmurdoch/bar-chart-race-the-most-populous-cities-in-the-world">bar chart race</a> of city populations dating back to 1500 CE. Burn-Murdoch’s chart was created in D3, but I’ve been looking to get some experience with the <code>gganimate</code> R package.</p>
 </div>
 <div id="data-source-and-wrangling" class="section level2">
 <h2>Data source and wrangling</h2>
-<p>In order to show win totals for college football programs over time, I needed team record data for all teams for more a century. Fortunately, <a href="https://www.sports-reference.com/">Sports Reference</a> kindly provides detailed data on each season for all teams that played major college football. I patiently scraped the win-loss records of each college football program from their <a href="https://www.sports-reference.com/cfb/schools/">team pages</a>.</p>
-<p>A quick note on “major schools:” Sports Reference has a somewhat subjective <a href="https://www.sports-reference.com/cfb/about/what-is-major.html">definition</a> of major schools that they adopted from <a href="http://www.jhowell.net/cf/scores/ScoresIndex.htm">James Howell</a> that looks at whether a school played 50% or more of its games against football bowl subdivision (FBS) opponents during a season. Some schools gain or lose major status over time. For example, Yale hasn’t been a major school in football since 1981 by this defintion, even though they still play football today. For this project, we will only be counting major school seasons.</p>
+<p>In order to show win totals for college football programs over time, I needed team record data for all teams for more than a century. Fortunately, <a href="https://www.sports-reference.com/">Sports Reference</a> kindly provides detailed data on each season for all teams that played major college football. I patiently scraped the win-loss records of each college football program from their <a href="https://www.sports-reference.com/cfb/schools/">team pages</a>.</p>
+<p>A quick note on “major schools:” Sports Reference has a somewhat subjective <a href="https://www.sports-reference.com/cfb/about/what-is-major.html">definition</a> of major schools that they adopted from <a href="http://www.jhowell.net/cf/scores/ScoresIndex.htm">James Howell</a> that looks at whether a school played 50% or more of its games against football bowl subdivision (FBS) level opponents during a season. Some schools gain or lose major status over time. For example, Yale hasn’t been a major school in football since 1981 by this definition, even though they still play football today. For this project, I only included seasons of major schools.</p>
 <p>With that out of the way, let’s load the R packages.</p>
 <pre class="r"><code>library(tidyverse)
 library(zoo)
 library(RcppRoll)
 library(gganimate)
 library(shadowtext)</code></pre>
-<p>Now let’s look at the variables in the dataset from Sports Reference.</p>
+<p>Now let’s look at the variables in the data from Sports Reference.</p>
 <pre class="r"><code>glimpse(team_record_raw)</code></pre>
 <pre><code>## Observations: 13,616
 ## Variables: 17
@@ -111,7 +111,7 @@ library(shadowtext)</code></pre>
 ## $ from     &lt;chr&gt; &quot;1957&quot;, &quot;1957&quot;, &quot;1957&quot;, &quot;1957&quot;, &quot;1957&quot;, &quot;1957&quot;, &quot;1957...
 ## $ to       &lt;chr&gt; &quot;2019&quot;, &quot;2019&quot;, &quot;2019&quot;, &quot;2019&quot;, &quot;2019&quot;, &quot;2019&quot;, &quot;2019...</code></pre>
 <p>The primary variables I used for this project are <code>school</code>, <code>year</code>, <code>conf</code> (conference membership), <code>w</code> (wins), <code>l</code> (losses), and <code>notes</code>. Within the notes variable is information about whether the school had its record adjusted by the NCAA. For example, USC had to forgo all 12 of its wins from the 2005 season. To line up with the official NCAA records, I parsed the notes field and adjusted team record data accordingly.</p>
-<p>Some schools had gaps in their data for when they did not play as major school or didn’t play at all, so I used <code>tidyr::complete</code> and <code>zoo::na.locf</code> to fill in those years with records of 0 wins and 0 losses.</p>
+<p>Some schools had gaps in their data for when they did not play as a major school or didn’t play at all, so I used <code>tidyr::complete</code> and <code>zoo::na.locf</code> to fill in those years with records of 0 wins and 0 losses.</p>
 <p>Finally, I used <code>RcppRoll::roll_sumr</code> to generate 10-year rolling win and loss totals, along with cumulative win and loss totals.</p>
 <pre class="r"><code>team_record_prep &lt;- team_record_raw %&gt;%
   mutate_at(vars(year, w, l, t, pct, srs, sos, ap_pre, ap_high, ap_post),
@@ -180,7 +180,7 @@ library(shadowtext)</code></pre>
     rank_r10_losses
   ) %&gt;% 
   arrange(school, year)</code></pre>
-<p>Here’s how the final dataset looks</p>
+<p>Here’s how the final dataset looks:</p>
 <pre class="r"><code>glimpse(team_record_final)</code></pre>
 <pre><code>## Observations: 4,274
 ## Variables: 11
@@ -222,7 +222,7 @@ theme_set(theme_light() + my_theme)</code></pre>
 </div>
 <div id="creating-some-plots" class="section level2">
 <h2>Creating some plots!</h2>
-<p>In each of the plots, I used the <code>shadowtext::geom_shadowtext</code> function to add a black drop shadow behind the year to increase the contrast against the axis lines in the background. I also had to do a lot of testing with <code>nudge_y</code> to get the school labels in a position that worked for schools with both long and short names.</p>
+<p>In each of the plots, I used the <code>shadowtext::geom_shadowtext</code> function to add a black drop shadow behind the year to increase the contrast against the axis lines in the background. I also had to do a lot of testing with <code>nudge_y</code> to get the school labels in a position that worked both for schools with long names and those with short ones.</p>
 <div id="rolling-10-year-winners" class="section level3">
 <h3>Rolling 10-year winners</h3>
 <pre class="r"><code>rolling_wins_chart &lt;- team_record_final %&gt;%
@@ -267,8 +267,8 @@ theme_set(theme_light() + my_theme)</code></pre>
   transition_states(year,
                     transition_length = 4, state_length = 3) +
   ease_aes(&#39;cubic-in-out&#39;)</code></pre>
-<p>There is a lot of noise from year to year among the top 10 by rolling win total (as you would expect!), but the plot really does show the rise of certain programs (Notre Dame, Oklahome, Miami, Alabama). Also, it’s fascinating to see how many or few wins it took to be at the top.</p>
-<p>I’m also pleased with how the conference membership is displayed and how it shows when a school like Nebraska moves from the Big 8 to the Big 12.</p>
+<p>There is a lot of noise from year to year among the top 10 by rolling win total (as you would expect!), but the plot really does show the rise of certain programs (Notre Dame, Oklahoma, Miami, Alabama). Also, it’s fascinating to see the variation over time in win totals necessary to be at the top.</p>
+<p>I’m also pleased with how the conference membership is displayed and how it clearly shows when a school changes conferences, like when Nebraska moved from the Big 8 to the Big 12 in 1990s.</p>
 <p><img src="/post/2019-07-14-college-football-bar-chart-races_files/cfb_rolling_wins.gif" /></p>
 </div>
 <div id="and-rolling-10-year-losers" class="section level3">

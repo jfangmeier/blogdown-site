@@ -1,7 +1,7 @@
 ---
 title: College Football Bar Chart Races
 author: Josh Fangmeier
-date: '2019-07-14'
+date: '2019-07-17'
 slug: college-football-bar-chart-races
 categories: []
 tags: []
@@ -27,15 +27,16 @@ file.copy(file.path(current.folder, list.of.files), new.folder, overwrite = TRUE
 ![](`r paste0('/post/', images_folder, '/cfb_rolling_wins.gif')`)
 
 ## Bar Chart Races
-The project is inspired by the Athletic's fantastic [series](https://theathletic.com/tag/150-years-of-college-football/) by [Matt Brown](https://twitter.com/MattBrownCFB) and [Michael Weinreb](https://twitter.com/MichaelWeinreb) which looks back on 150 years of college football by summarizing each decade. One of my favorite parts of the series is how it describes the rise and fall of various schools over time, such as the early dominance of the Ivy League prior to World War I, Oklahoma in the 1950s, and Miami in the 1980s. 
+This project is inspired by the Athletic's fantastic [series](https://theathletic.com/tag/150-years-of-college-football/) by [Matt Brown](https://twitter.com/MattBrownCFB) and [Michael Weinreb](https://twitter.com/MichaelWeinreb) that looks back on 150 years of college football by summarizing each decade. One of my favorite parts of the series is how it describes the rise and fall of various schools over time, such as the early dominance of the Ivy League prior to World War I, Oklahoma in the 1950s, and Miami in the 1980s. 
 
 The series also got me to think about how all these trends in program success could be visualized, and a bar chart race seemed like the obvious option to try out. I heard about bar chart races from [John Burn-Murdoch](https://twitter.com/jburnmurdoch)'s interview on the [PolicyViz podcast](https://policyviz.com/podcast/episode-155-john-burn-murdoch/) where he discussed his innovative [bar chart race](https://observablehq.com/@johnburnmurdoch/bar-chart-race-the-most-populous-cities-in-the-world) of city populations dating back to 1500 CE. Burn-Murdoch's chart was created in D3, but I've been looking to get some experience with the `gganimate` R package.
 
 
-## Data source and wrangling
-In order to show win totals for college football programs over time, I needed team record data for all teams for more a century. Fortunately, [Sports Reference](https://www.sports-reference.com/) kindly provides detailed data on each season for all teams that played major college football. I patiently scraped the win-loss records of each college football program from their [team pages](https://www.sports-reference.com/cfb/schools/).
 
-A quick note on "major schools:" Sports Reference has a somewhat subjective [definition](https://www.sports-reference.com/cfb/about/what-is-major.html) of major schools that they adopted from [James Howell](http://www.jhowell.net/cf/scores/ScoresIndex.htm) that looks at whether a school played 50% or more of its games against football bowl subdivision (FBS) opponents during a season. Some schools gain or lose major status over time. For example, Yale hasn't been a major school in football since 1981 by this defintion, even though they still play football today. For this project, we will only be counting major school seasons.
+## Data source and wrangling
+In order to show win totals for college football programs over time, I needed team record data for all teams for more than a century. Fortunately, [Sports Reference](https://www.sports-reference.com/) kindly provides detailed data on each season for all teams that played major college football. I patiently scraped the win-loss records of each college football program from their [team pages](https://www.sports-reference.com/cfb/schools/).
+
+A quick note on "major schools:" Sports Reference has a somewhat subjective [definition](https://www.sports-reference.com/cfb/about/what-is-major.html) of major schools that they adopted from [James Howell](http://www.jhowell.net/cf/scores/ScoresIndex.htm) that looks at whether a school played 50% or more of its games against football bowl subdivision (FBS) level opponents during a season. Some schools gain or lose major status over time. For example, Yale hasn't been a major school in football since 1981 by this definition, even though they still play football today. For this project, I only included seasons of major schools.
 
 With that out of the way, let's load the R packages.
 
@@ -52,7 +53,7 @@ team_record_raw <-
   readRDS(file.path(path_to_project, "data", "team_record_raw.rds"))
 ```
 
-Now let's look at the variables in the dataset from Sports Reference.
+Now let's look at the variables in the data from Sports Reference.
 
 ```{r glimpse raw data, include=TRUE}
 glimpse(team_record_raw)
@@ -60,7 +61,7 @@ glimpse(team_record_raw)
 
 The primary variables I used for this project are `school`, `year`, `conf` (conference membership), `w` (wins), `l` (losses), and `notes`. Within the notes variable is information about whether the school had its record adjusted by the NCAA. For example, USC had to forgo all 12 of its wins from the 2005 season. To line up with the official NCAA records, I parsed the notes field and adjusted team record data accordingly. 
 
-Some schools had gaps in their data for when they did not play as major school or didn't play at all, so I used `tidyr::complete` and `zoo::na.locf` to fill in those years with records of 0 wins and 0 losses. 
+Some schools had gaps in their data for when they did not play as a major school or didn't play at all, so I used `tidyr::complete` and `zoo::na.locf` to fill in those years with records of 0 wins and 0 losses. 
 
 Finally, I used `RcppRoll::roll_sumr` to generate 10-year rolling win and loss totals, along with cumulative win and loss totals.
 
@@ -138,14 +139,14 @@ team_record_final <- team_record_prep %>%
   arrange(school, year)
 ```
 
-Here's how the final dataset looks
+Here's how the final dataset looks:
 
 ```{r glimpse final data, include=TRUE}
 glimpse(team_record_final)
 ```
 
 ## Setting up the animation theme
-To make the graphic look a little bit like a football field, I set the background to be "Astroturf Green" and much of the text and lines to be white. Emily Kuehler's [post](https://emilykuehler.github.io/bar-chart-race/ ) was a huge help with setting up a theme and getting `gganimate` to work properly. Go check out her post for some awesome Grand Slam tennis and NBA scoring bar chart races!
+To make the graphic look a little bit like a football field, I set the background to be "Astroturf Green" and much of the text and lines to be white. Emily Kuehler's [post](https://emilykuehler.github.io/bar-chart-race/) was a huge help with setting up a theme and getting `gganimate` to work properly. Go check out her post for some awesome Grand Slam tennis and NBA scoring bar chart races!
 
 ```{r insert ggplot theme here, eval=FALSE}
 my_background <- '#196F0C' #Astroturf Green
@@ -171,7 +172,7 @@ theme_set(theme_light() + my_theme)
 ```
 
 ## Creating some plots!
-In each of the plots, I used the `shadowtext::geom_shadowtext` function to add a black drop shadow behind the year to increase the contrast against the axis lines in the background. I also had to do a lot of testing with `nudge_y` to get the school labels in a position that worked for schools with both long and short names.
+In each of the plots, I used the `shadowtext::geom_shadowtext` function to add a black drop shadow behind the year to increase the contrast against the axis lines in the background. I also had to do a lot of testing with `nudge_y` to get the school labels in a position that worked both for schools with long names and those with short ones.
 
 ### Rolling 10-year winners
 
@@ -220,9 +221,9 @@ rolling_wins_chart <- team_record_final %>%
   ease_aes('cubic-in-out')
 ```
 
-There is a lot of noise from year to year among the top 10 by rolling win total (as you would expect!), but the plot really does show the rise of certain programs (Notre Dame, Oklahome, Miami, Alabama). Also, it's fascinating to see how many or few wins it took to be at the top.
+There is a lot of noise from year to year among the top 10 by rolling win total (as you would expect!), but the plot really does show the rise of certain programs (Notre Dame, Oklahoma, Miami, Alabama). Also, it's fascinating to see the variation over time in win totals necessary to be at the top.
 
-I'm also pleased with how the conference membership is displayed and how it shows when a school like Nebraska moves from the Big 8 to the Big 12.
+I'm also pleased with how the conference membership is displayed and how it clearly shows when a school changes conferences, like when Nebraska moved from the Big 8 to the Big 12 in 1990s.
 
 ![](`r paste0('/post/', images_folder, '/cfb_rolling_wins.gif')`)
 
