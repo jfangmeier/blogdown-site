@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rayshading the Big Sur Marathon</title>
+      <link>/post/rayshading-the-big-sur-marathon/</link>
+      <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/rayshading-the-big-sur-marathon/</guid>
+      <description>Visualizing marathon racesWith marathons and other large gatherings canceled or delayed by the COVID-19 pandemic, I’ve been feeling extra nostalgic for past running experiences in some of my favorite places. At the top of the list is the Big Sur Marathon that runs along California State Route 1 from Big Sur Station to Carmel. The course starts near the southern edge of the Redwood forest, rises to the top of Hurricane Point overlooking the Pacific, crosses iconic Bixby Creek Bridge, and passes over numerous hills and turns before reaching the finish.</description>
+    </item>
     
     <item>
       <title>College Football Bar Chart Races</title>
