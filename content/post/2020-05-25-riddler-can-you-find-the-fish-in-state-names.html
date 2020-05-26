@@ -1,0 +1,80 @@
+---
+title: 'FiveThirtyEight Riddler Challenge: Can You Find The Fish In State Names?'
+author: Josh Fangmeier
+date: '2020-05-25'
+slug: riddler-can-you-find-the-fish-in-state-names
+categories: []
+tags: []
+toc: []
+images: ~
+---
+
+
+
+<div id="the-challenge" class="section level2">
+<h2>The Challenge</h2>
+<p>This weekend, I attempted to solve my second FiveThirtyEight Riddler challenge:</p>
+<blockquote>
+<p>Ohio is the only state whose name doesn’t share any letters with the word “mackerel.” It’s strange, but it’s true. But that isn’t the only pairing of a state and a word you can say that about — it’s not even the only fish! Kentucky has “goldfish” to itself, Montana has “jellyfish” and Delaware has “monkfish,” just to name a few. What is the longest “mackerel?” That is, what is the longest word that doesn’t share any letters with exactly one state? (If multiple “mackerels” are tied for being the longest, can you find them all?)
+Extra credit: Which state has the most “mackerels?” That is, which state has the most words for which it is the only state without any letters in common with those words?</p>
+</blockquote>
+</div>
+<div id="data-prep" class="section level2">
+<h2>Data prep</h2>
+<pre class="r"><code>library(tidyverse)
+library(httr)
+library(rvest)
+
+words_raw &lt;- &quot;https://norvig.com/ngrams/word.list&quot; %&gt;% 
+  GET() %&gt;% 
+  read_html() %&gt;% 
+  html_text()
+
+words &lt;- str_split(words_raw, &quot;\n&quot;)[[1]]
+
+states &lt;- state.name %&gt;% 
+  str_to_lower(.) %&gt;% 
+  str_remove_all(., &quot; &quot;)</code></pre>
+</div>
+<div id="calculating-string-intersections-letters-in-common" class="section level2">
+<h2>Calculating string intersections (letters in common)</h2>
+<pre class="r"><code>state_word_intersect &lt;- 
+  tidyr::expand_grid(words, states) %&gt;% 
+  mutate(intersect = map2(words, states, ~Reduce(intersect, strsplit(c(.x, .y), split = &quot;&quot;)))) %&gt;% 
+  mutate(intersect_length = map_dbl(intersect, length))</code></pre>
+</div>
+<div id="solution" class="section level2">
+<h2>Solution</h2>
+<pre class="r"><code>word_single_state &lt;- 
+  state_word_intersect %&gt;% 
+  filter(intersect_length == 0) %&gt;% 
+  group_by(words) %&gt;% 
+  mutate(state_matches = n()) %&gt;% 
+  ungroup() %&gt;% 
+  filter(state_matches == 1)
+
+word_single_state %&gt;% 
+  mutate(word_length = str_length(words),
+         max_length = max(word_length, na.rm = TRUE)) %&gt;% 
+  filter(word_length == max_length) %&gt;% 
+  select(words, word_length, states)</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   words                   word_length states     
+##   &lt;chr&gt;                         &lt;int&gt; &lt;chr&gt;      
+## 1 counterproductivenesses          23 alabama    
+## 2 hydrochlorofluorocarbon          23 mississippi</code></pre>
+</div>
+<div id="extra-credit" class="section level2">
+<h2>Extra credit</h2>
+<pre class="r"><code>word_single_state %&gt;% 
+  group_by(states) %&gt;% 
+  mutate(word_count = n()) %&gt;% 
+  ungroup() %&gt;% 
+  mutate(max_word_count = max(word_count)) %&gt;% 
+  filter(word_count == max_word_count) %&gt;% 
+  distinct(states, word_count)</code></pre>
+<pre><code>## # A tibble: 1 x 2
+##   states word_count
+##   &lt;chr&gt;       &lt;int&gt;
+## 1 ohio        11342</code></pre>
+</div>

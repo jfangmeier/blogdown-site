@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 24 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 25 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>FiveThirtyEight Riddler Challenge: Can You Find The Fish In State Names?</title>
+      <link>/post/riddler-can-you-find-the-fish-in-state-names/</link>
+      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/riddler-can-you-find-the-fish-in-state-names/</guid>
+      <description>The ChallengeThis weekend, I attempted to solve my second FiveThirtyEight Riddler challenge:
+Ohio is the only state whose name doesn’t share any letters with the word “mackerel.” It’s strange, but it’s true. But that isn’t the only pairing of a state and a word you can say that about — it’s not even the only fish! Kentucky has “goldfish” to itself, Montana has “jellyfish” and Delaware has “monkfish,” just to name a few.</description>
+    </item>
     
     <item>
       <title>Rayshading the Big Sur Marathon</title>

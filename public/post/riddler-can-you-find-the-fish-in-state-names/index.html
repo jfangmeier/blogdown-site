@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+
+<meta itemprop="name" content="FiveThirtyEight Riddler Challenge: Can You Find The Fish In State Names?">
+<meta itemprop="description" content="The ChallengeThis weekend, I attempted to solve my second FiveThirtyEight Riddler challenge:
+Ohio is the only state whose name doesn’t share any letters with the word “mackerel.” It’s strange, but it’s true. But that isn’t the only pairing of a state and a word you can say that about — it’s not even the only fish! Kentucky has “goldfish” to itself, Montana has “jellyfish” and Delaware has “monkfish,” just to name a few.">
+
+
+<meta itemprop="datePublished" content="2020-05-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-05-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="296">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="FiveThirtyEight Riddler Challenge: Can You Find The Fish In State Names?" />
+<meta property="og:description" content="The ChallengeThis weekend, I attempted to solve my second FiveThirtyEight Riddler challenge:
+Ohio is the only state whose name doesn’t share any letters with the word “mackerel.” It’s strange, but it’s true. But that isn’t the only pairing of a state and a word you can say that about — it’s not even the only fish! Kentucky has “goldfish” to itself, Montana has “jellyfish” and Delaware has “monkfish,” just to name a few." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/riddler-can-you-find-the-fish-in-state-names/" />
+<meta property="article:published_time" content="2020-05-25T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2020-05-25T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="FiveThirtyEight Riddler Challenge: Can You Find The Fish In State Names?"/>
+<meta name="twitter:description" content="The ChallengeThis weekend, I attempted to solve my second FiveThirtyEight Riddler challenge:
+Ohio is the only state whose name doesn’t share any letters with the word “mackerel.” It’s strange, but it’s true. But that isn’t the only pairing of a state and a word you can say that about — it’s not even the only fish! Kentucky has “goldfish” to itself, Montana has “jellyfish” and Delaware has “monkfish,” just to name a few."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>FiveThirtyEight Riddler Challenge: Can You Find The Fish In State Names?</title>
+	<link rel="stylesheet" href="/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="/">Josh Fangmeier</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="/post/">Posts</a>
+					<a href="/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/joshfangmeier" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://www.linkedin.com/in/jfangmeier/" target="_blank" rel="noopener me" title="Linkedin"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a href="https://github.com/jfangmeier" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="/post/">Posts</a></li>
+			<li><a href="/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>FiveThirtyEight Riddler Challenge: Can You Find The Fish In State Names?</h1>
+		<div class="content">
+			
+
+
+<div id="the-challenge" class="section level2">
+<h2>The Challenge</h2>
+<p>This weekend, I attempted to solve my second FiveThirtyEight Riddler challenge:</p>
+<blockquote>
+<p>Ohio is the only state whose name doesn’t share any letters with the word “mackerel.” It’s strange, but it’s true. But that isn’t the only pairing of a state and a word you can say that about — it’s not even the only fish! Kentucky has “goldfish” to itself, Montana has “jellyfish” and Delaware has “monkfish,” just to name a few. What is the longest “mackerel?” That is, what is the longest word that doesn’t share any letters with exactly one state? (If multiple “mackerels” are tied for being the longest, can you find them all?)
+Extra credit: Which state has the most “mackerels?” That is, which state has the most words for which it is the only state without any letters in common with those words?</p>
+</blockquote>
+</div>
+<div id="data-prep" class="section level2">
+<h2>Data prep</h2>
+<pre class="r"><code>library(tidyverse)
+library(httr)
+library(rvest)
+
+words_raw &lt;- &quot;https://norvig.com/ngrams/word.list&quot; %&gt;% 
+  GET() %&gt;% 
+  read_html() %&gt;% 
+  html_text()
+
+words &lt;- str_split(words_raw, &quot;\n&quot;)[[1]]
+
+states &lt;- state.name %&gt;% 
+  str_to_lower(.) %&gt;% 
+  str_remove_all(., &quot; &quot;)</code></pre>
+</div>
+<div id="calculating-string-intersections-letters-in-common" class="section level2">
+<h2>Calculating string intersections (letters in common)</h2>
+<pre class="r"><code>state_word_intersect &lt;- 
+  tidyr::expand_grid(words, states) %&gt;% 
+  mutate(intersect = map2(words, states, ~Reduce(intersect, strsplit(c(.x, .y), split = &quot;&quot;)))) %&gt;% 
+  mutate(intersect_length = map_dbl(intersect, length))</code></pre>
+</div>
+<div id="solution" class="section level2">
+<h2>Solution</h2>
+<pre class="r"><code>word_single_state &lt;- 
+  state_word_intersect %&gt;% 
+  filter(intersect_length == 0) %&gt;% 
+  group_by(words) %&gt;% 
+  mutate(state_matches = n()) %&gt;% 
+  ungroup() %&gt;% 
+  filter(state_matches == 1)
+
+word_single_state %&gt;% 
+  mutate(word_length = str_length(words),
+         max_length = max(word_length, na.rm = TRUE)) %&gt;% 
+  filter(word_length == max_length) %&gt;% 
+  select(words, word_length, states)</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   words                   word_length states     
+##   &lt;chr&gt;                         &lt;int&gt; &lt;chr&gt;      
+## 1 counterproductivenesses          23 alabama    
+## 2 hydrochlorofluorocarbon          23 mississippi</code></pre>
+</div>
+<div id="extra-credit" class="section level2">
+<h2>Extra credit</h2>
+<pre class="r"><code>word_single_state %&gt;% 
+  group_by(states) %&gt;% 
+  mutate(word_count = n()) %&gt;% 
+  ungroup() %&gt;% 
+  mutate(max_word_count = max(word_count)) %&gt;% 
+  filter(word_count == max_word_count) %&gt;% 
+  distinct(states, word_count)</code></pre>
+<pre><code>## # A tibble: 1 x 2
+##   states word_count
+##   &lt;chr&gt;       &lt;int&gt;
+## 1 ohio        11342</code></pre>
+</div>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="/">Josh Fangmeier</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>
