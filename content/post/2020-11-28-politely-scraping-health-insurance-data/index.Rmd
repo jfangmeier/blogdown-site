@@ -119,7 +119,7 @@ while(!is.na(path)){
     as_tibble() %>% 
     janitor::clean_names() %>% 
     bind_rows(toc_df)
-  # see if there's "Older posts" button
+  # see if a "Next" link is available
   if (index == 1){
     path <- current_page %>% 
       html_node(".boxGreyNoBorder div a") %>% 
@@ -206,7 +206,7 @@ toc <-
 
 ## Scraping data on family premium costs
 
-As part of the project, I'm interested in the trends in the total premium costs of family health insurance through an employer (the sum of employer and employee contributions). To pull this data, I need to scrape the data from Table IID2, which has this data by state. First, I pull a vector of URLs from the table of contents, and then I use the `politely` function to apply polite principles in `purrr::map` style with the `httr::GET` function.
+As part of the project, I'm interested in the trends in the total premium costs of family health insurance through an employer (the sum of employer and employee contributions). To pull this data, I need to scrape the data from [Table IID1](https://meps.ahrq.gov/data_stats/summ_tables/insr/state/series_2/2019/tiid1.htm), which has this data by state. First, I pull a vector of URLs from the table of contents, and then I use the `politely` wrapper function to apply polite principles with `purrr::map` and the `httr::GET` function.
 
 ```{r scrap prem, eval=FALSE}
 ## Family premiums by state
@@ -393,7 +393,8 @@ seriesScraper <- function(resp) {
       names_to = "segment",
       values_to = "std_err"
     ) %>%
-    mutate_if(is.factor, as.character)
+    mutate_if(is.factor, as.character) %>% 
+    select(-group_category)
   
   inner_join(pt_ests,
              std_errs,
