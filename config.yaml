@@ -1,0 +1,46 @@
+baseURL: https://joshfangmeier.netlify.app
+languageCode: en-us
+defaultContentLanguage: en
+title: Josh Fangmeier
+theme: recluse
+rssLimit: 10
+copyright: This work is licensed under a Creative Commons Attribution-NonCommercial
+  4.0 International License.
+enableEmoji: yes
+author:
+  name: Josh Fangmeier
+blackfriday: {}
+taxonomies:
+  tag: tags
+params:
+  code_copy_button: yes
+  dateform: Jan 2, 2006
+  dateformNum: '2006-01-02'
+  dateformNumTime: 2006-01-02 15:04 -0700
+  dateformShort: Jan 2
+  footerCopyright: ' &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/"
+    target="_blank" rel="noopener">CC BY-NC 4.0</a>'
+  homeSubtitle: health policy, data, sports, et cetera
+  justifyContent: no
+  relatedPosts: no
+  social:
+    - name: twitter
+      url: https://twitter.com/joshfangmeier
+    - name: linkedin
+      url: https://www.linkedin.com/in/jfangmeier/
+    - name: github
+      url: https://github.com/jfangmeier
+  themeColor: '#494f5c'
+menu:
+  main:
+    - name: Posts
+      url: post/
+      weight: 10
+    - name: About
+      url: about/
+      weight: 20
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
