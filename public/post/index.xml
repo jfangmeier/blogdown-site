@@ -1,54 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on Josh Fangmeier</title>
-    <link>/post/</link>
-    <description>Recent content in Posts on Josh Fangmeier</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 25 May 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>FiveThirtyEight Riddler Challenge: Can You Find The Fish In State Names?</title>
-      <link>/post/riddler-can-you-find-the-fish-in-state-names/</link>
-      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/riddler-can-you-find-the-fish-in-state-names/</guid>
-      <description>The ChallengeThis weekend, I attempted to solve my second FiveThirtyEight Riddler challenge:
-Ohio is the only state whose name doesn’t share any letters with the word “mackerel.” It’s strange, but it’s true. But that isn’t the only pairing of a state and a word you can say that about — it’s not even the only fish! Kentucky has “goldfish” to itself, Montana has “jellyfish” and Delaware has “monkfish,” just to name a few.</description>
-    </item>
-    
-    <item>
-      <title>Rayshading the Big Sur Marathon</title>
-      <link>/post/rayshading-the-big-sur-marathon/</link>
-      <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/rayshading-the-big-sur-marathon/</guid>
-      <description>Visualizing marathon racesWith marathons and other large gatherings canceled or delayed by the COVID-19 pandemic, I’ve been feeling extra nostalgic for past running experiences in some of my favorite places. At the top of the list is the Big Sur Marathon that runs along California State Route 1 from Big Sur Station to Carmel. The course starts near the southern edge of the Redwood forest, rises to the top of Hurricane Point overlooking the Pacific, crosses iconic Bixby Creek Bridge, and passes over numerous hills and turns before reaching the finish.</description>
-    </item>
-    
-    <item>
-      <title>College Football Bar Chart Races</title>
-      <link>/post/college-football-bar-chart-races/</link>
-      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/college-football-bar-chart-races/</guid>
-      <description>Bar Chart RacesThis project is inspired by the Athletic’s fantastic series by Matt Brown and Michael Weinreb that looks back on 150 years of college football by summarizing each decade. One of my favorite parts of the series is how it describes the rise and fall of various schools over time, such as the early dominance of the Ivy League prior to World War I, Oklahoma in the 1950s, and Miami in the 1980s.</description>
-    </item>
-    
-    <item>
-      <title>FiveThirtyEight Riddler Challenge: &#39;Transitive Champions&#39;</title>
-      <link>/post/fivethirtyeight-riddler-challenge-transitive-champions/</link>
-      <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/fivethirtyeight-riddler-challenge-transitive-champions/</guid>
-      <description>The ChallengeThis weekend, I attempted to solve my first FiveThirtyEight Riddler challenge. Many of these challenges require a bit more probability theory than I’m comfortable with, but this week’s classic challenge hit a subject that I care too much about: college basketball national champions and the bragging rights that come from beating the champ:
-On Sunday, the Baylor Lady Bears won the 2019 NCAA women’s basketball championship, and on Monday, the Virginia Cavaliers did the same on the men’s side.</description>
-    </item>
-    
-  </channel>
-</rss>
