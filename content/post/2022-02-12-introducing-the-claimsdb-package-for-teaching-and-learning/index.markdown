@@ -17,7 +17,7 @@ images: ~
 
 ![diagram](README-diagram.PNG)
 
-In the fields of health informatics and health services research, health insurance claims data are a valuable source to answer questions about health care access and financing. However, claims data in the real world often contains both sensitive (protected health information) and proprietary (trade secrets) elements. For most students and educators seeking opportunities to learn how to use claims data, there are few available sources for practice.
+In the fields of health informatics and health services research, health insurance claims data are a valuable resource to help answer questions about health care access and financing. However, claims data in the real world often contains both sensitive (protected health information) and proprietary (trade secrets) elements. For most students and educators seeking opportunities to learn how to use claims data, there are few available sources for practice.
 
 To help with this problem, [__claimsdb__](https://github.com/jfangmeier/claimsdb) 📦 provides easy access to a sample of health insurance enrollment and claims data from the [Centers for Medicare and Medicaid Services (CMS) Data Entrepreneurs’ Synthetic Public Use File (DE-SynPUF)](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/SynPUFs/DE_Syn_PUF), as a set of relational tables or as an in-memory database using [DuckDB](https://duckdb.org/). All the data is contained within a single package, so users do not need to download any external data. This package is inspired by and based on the [starwarsdb](https://github.com/gadenbuie/starwarsdb) package.
 
@@ -25,7 +25,7 @@ The data are structured as actual Medicare claims data but are fully “syntheti
 
 The data included in claimsdb comes from 500 randomly selected 2008 Medicare beneficiaries from Sample 2 of the DE-SynPUF, and it includes all the associated claims for these members for 2008-2009. CMS provides [resources](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/SynPUFs/DESample02), including a codebook, FAQs, and other documents with more information about this data. 
 
-This post covers the following topics: 
+To introduce claimsdb, this post covers the following topics: 
 - Installation of the claimsdb package
 - How to setup a remote database with the included data
 - Examples of how to use claimsdb for analysis
@@ -144,7 +144,7 @@ pde_rmt
 
 ## Examples of using *claimsdb* for analysis
 
-To analyze and explore the claims and beneficiary data, you can execute SQL code on the database using the `DBI` package.
+To analyze and explore the claims and beneficiary data, you can execute your own SQL code on the database using the `DBI` package.
 
 
 ```r
@@ -200,7 +200,7 @@ bene_rmt %>%
 ## # ... with more rows
 ```
 
-We can use the `show_query()` function to see the SQL code that dbplyr created that it closely matches the SQL code above.
+We can use the `show_query()` function to see the SQL code that dbplyr created and that it closely matches the SQL code above.
 
 
 ```r
@@ -219,7 +219,7 @@ bene_rmt %>%
 
 ### First, a note about working with dates/times in databases
 
-dbplyr is an amazing tool for working with databases, especially if you want to use many functions from the dplyr and tidyr packages. However, it does not currently have SQL translations for all functions in the tidyverse family of packages. For example, the `lubridate` package's date and time functions work on local dataframes but cannot be translated to work on remote tables at this time. In the example below, you can see that the lubridate function for parsing the year from a date works on the local dataframe but generates an error on the remote table with the same data.
+dbplyr is an amazing tool for working with databases, especially if you want to use many functions from the dplyr and tidyr packages. However, it does not currently have SQL translations for all functions in the tidyverse family of packages. For example, the `lubridate` package's date and time functions work on local dataframes but cannot be translated to work on remote tables at this time. In the example below, you can see that the lubridate function `year()` (for parsing the year from a date) works on the local dataframe but generates an error on the remote table with the same data.
 
 
 ```r
@@ -295,7 +295,7 @@ bene_rmt %>%
 
 ### Example 1: *which members had the highest prescription drug costs for 2008?*
 
-For this first example, we are going to identify the beneficiaries with the highest total prescription drug costs in 2008. We need to use the "pde" table that has claims on prescription drug events and the "bene" table that has beneficiary records. We create an object that is the aggregated costs for prescription drugs at the beneficiary level in 2008. Note that we had to use `date_part()` to parse the year from the service date. 
+For this first example, we are going to identify the beneficiaries with the highest total prescription drug costs in 2008. We need to use the *pde* table that has claims on prescription drug events and the *bene* table that has beneficiary records. We create an object that is the aggregated costs for prescription drugs at the beneficiary level in 2008. Note that we had to use `date_part()` to parse the year from the service date. 
 
 
 ```r
@@ -328,7 +328,7 @@ rx_costs_rmt
 ## # ... with more rows
 ```
 
-Then we join the aggregated cost data to the beneficiary table. This is necessary because the "pde" table does not include beneficiaries who didn't use any prescription drugs. After joining the table we reassign missing cost data to zero for those beneficiaries with no utilization. We can then use `collect()` to bring the results into a local dataframe.
+Then we join the aggregated cost data to the beneficiary table. This is necessary because the *pde* table does not include beneficiaries who didn't use any prescription drugs. After joining the table we reassign missing cost data to zero for those beneficiaries with no utilization. We can then use `collect()` to retrieve the results as a local dataframe.
 
 
 ```r
@@ -394,7 +394,7 @@ rx_bene_df
 
 ### Example 2: *what percent of beneficiaries received an office visit within 30 days of discharge from a hospital?*
 
-In the next example, we are identifying which beneficiaries had an office visit within 30 days of being discharged. We will start with the "inpatient" table that contains records for all inpatient stays, including when a beneficiary was discharged. We create an object that includes the beneficiary ID, the discharge date, and the date 30 days after discharge. Note that for DuckDB we need to coerce "30" to an integer to calculate the new date.
+In the next example, we are identifying which beneficiaries had an office visit within 30 days of being discharged. We will start with the *inpatient* table that contains records for all inpatient stays, including when a beneficiary was discharged. We create an object that includes the beneficiary ID, the discharge date, and the date 30 days after discharge. Note that for DuckDB we need to coerce "30" to an integer to calculate the new date.
 
 
 ```r
@@ -427,7 +427,7 @@ ip_discharges
 ## # ... with more rows
 ```
 
-Next, we need to identify office visits from the "carrier" table. I created a vector of five office visit codes for this example. Since these code must match the values in the "HCPCS" columns, we reshape the table with `pivot_longer()` then filter for the office visit codes.
+Next, we need to identify office visits from the *carrier* table. I created a vector of five office visit codes for this example. Since these codes must match the values in the "HCPCS" columns, we reshape the table with `pivot_longer()` then filter for the office visit codes.
 
 
 ```r
@@ -527,7 +527,7 @@ discharge_offvis %>%
 
 ### Example 3: *how well are beneficiaries filling their hypertension drug prescriptions?*
 
-For this final example, we need to identify hypertension medications within the "pde" table and calculate medication adherence rates for each beneficiary on a medication. To isolate the hypertension medications, we can borrow from the HEDIS medication list for ACE inhibitors and ARB medications (which are commonly used to treat hypertension). This medication list is for 2018/2019, so it likely includes new drugs that did not exist in 2008/2009 and may not include older drugs that are no longer used (ideally it's best to use external lists that match the time frame of the claims data).
+For this final example, we need to identify hypertension medications from the *pde* table and calculate medication adherence rates for each beneficiary. To isolate the hypertension medications, we can borrow from the HEDIS medication list for ACE inhibitors and ARB medications (which are commonly used to treat hypertension). This medication list is for 2018/2019, so it likely includes new drugs that did not exist in 2008/2009 and may not include older drugs that are no longer used (ideally it's best to use external lists that match the time frame of the claims data).
 
 
 ```r
@@ -599,7 +599,7 @@ hyp_ndc_rmt
 ## # ... with more rows
 ```
 
-With the hypertension codes in the database you can use `inner_join()` to find the matching drugs from the "pde" table.
+With the hypertension codes in the database, we can use `inner_join()` to find the matching drugs from the *pde* table.
 
 
 ```r
@@ -631,7 +631,9 @@ pde_hyp_rmt
 ## #   TOT_RX_CST_AMT <dbl>, LIST <chr>
 ```
 
-We can now use `collect()` to retrieve the data as a local dataframe. As a dataframe, we can now use the `AdhereR` package to calculate the __medication possession ratio (MPR)__ for members who filled a hypertension medication. We can see the MPR for each member who filled one of the medications, and we can calculate the median and mean MPRs across these beneficiaries.
+We can now use `collect()` to retrieve the data as a local dataframe. As a dataframe, we can now use the `AdhereR` package to calculate the *medication possession ratio (MPR)* for members who filled a hypertension medication. MPR is a commonly used metric of medication adherence, measuring if beneficiaries have gaps between their prescription fills. 
+
+We can see the MPR for each member who filled one of the medications, and we can calculate the median and mean MPRs across these beneficiaries.
 
 
 ```r
@@ -689,7 +691,7 @@ hyp_adhere_cma %>%
 ## Data Limitations
 
 While data included in claimsdb is useful for many types of analyses, it does include a few notable limitations.
-- As noted earlier, the data is a small sample (500 beneficiaries) and is not intended to be representative of the Medicare population. In addition, the data is synthetic and not intended to be used for drawing inferences on the Medicare population.
-- Since the data is more than 10 years old, it doesn't capture newer medications or procedures. It also includes procedure codes that have been retired or replaced.
+- As mentioned earlier, the data is a small sample (500 beneficiaries) and is not intended to be representative of the Medicare population. In addition, the data are synthetic and should not be used for drawing inferences on the Medicare population.
+- Since the data is more than 10 years old, it doesn't capture newer medications or procedures. It also includes procedure codes that have been retired or replaced. This is a challenge when applying external code lists that are much newer.
 - The diagnosis fields in the data use the International Classification of Diseases, Ninth Revision (ICD-9), but the United States converted to ICD-10 in 2015. If you are interesting in a mapping between ICD-9 and ICD-10, CMS has [resources](https://www.cms.gov/Medicare/Coding/ICD10/Archive-ICD-10-CM-ICD-10-PCS-GEMs) to consider.
 - The Medicare population is mostly Americans aged 65 and over, so the data will not have claims on certain specialties such as pediatrics or maternity care.
