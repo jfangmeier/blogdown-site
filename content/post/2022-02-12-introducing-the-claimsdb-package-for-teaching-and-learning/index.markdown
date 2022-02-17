@@ -691,7 +691,7 @@ hyp_adhere_cma %>%
 ## Data Limitations
 
 While data included in claimsdb is useful for many types of analyses, it does include a few notable limitations.
-- As mentioned earlier, the data is a small sample (500 beneficiaries) and is not intended to be representative of the Medicare population. In addition, the data are synthetic and should not be used for drawing inferences on the Medicare population.
+- As mentioned earlier, the data is a small sample (500 beneficiaries) and is not intended to be representative of the Medicare population. In addition, the data is synthetic and should not be used for drawing inferences on the Medicare population.
 - Since the data is more than 10 years old, it doesn't capture newer medications or procedures. It also includes procedure codes that have been retired or replaced. This is a challenge when applying external code lists that are much newer.
 - The diagnosis fields in the data use the International Classification of Diseases, Ninth Revision (ICD-9), but the United States converted to ICD-10 in 2015. If you are interesting in a mapping between ICD-9 and ICD-10, CMS has [resources](https://www.cms.gov/Medicare/Coding/ICD10/Archive-ICD-10-CM-ICD-10-PCS-GEMs) to consider.
 - The Medicare population is mostly Americans aged 65 and over, so the data will not have claims on certain specialties such as pediatrics or maternity care.
